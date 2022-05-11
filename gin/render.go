@@ -17,6 +17,7 @@ func Render(c *gin.Context, response *proxy.Response) {
 		c.XML(status, nil)
 		return
 	}
+	mxj.XMLEscapeChars(true)
 	mv := mxj.Map(response.Data)
 	data, _ := mv.Xml()
 	data = []byte(_header + string(data))
