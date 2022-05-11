@@ -6,6 +6,10 @@ import (
 	"github.com/luraproject/lura/v2/proxy"
 )
 
+const (
+	_header = "<?xml version='1.0' standalone='yes'?>"
+)
+
 // Render marshals the proxy response and passes the resulting xml to the response writer
 func Render(c *gin.Context, response *proxy.Response) {
 	status := c.Writer.Status()
@@ -14,6 +18,9 @@ func Render(c *gin.Context, response *proxy.Response) {
 		return
 	}
 	mv := mxj.Map(response.Data)
+	data, _ := mv.Xml()
+	data = []byte(_header + string(data))
+
 	c.Header("Content-Type", gin.MIMEXML)
-	mv.XmlWriter(c.Writer)
+	c.Writer.Write(data)
 }

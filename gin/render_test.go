@@ -27,7 +27,7 @@ func TestRender(t *testing.T) {
 		Render(c, res)
 	})
 
-	expected := `<doc><a><content>supu</content></a><content>tupu</content><foo>42</foo></doc>`
+	expected := `<?xml version='1.0' standalone='yes'?><doc><a><content>supu</content></a><content>tupu</content><foo>42</foo></doc>`
 
 	req, _ := http.NewRequest("GET", "http://127.0.0.1:8080/", nil)
 
