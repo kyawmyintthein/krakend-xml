@@ -2,7 +2,7 @@ Krakend XML
 ====
 
 Enable XML encoding in the [Lura Project](github.com/luraproject/lura)
-
+Add heading XML tag
 ## Documentation
 
 For more details, check the auto-generated documentation: https://godoc.org/github.com/devopsfaith/krakend-xml
